@@ -4,7 +4,8 @@
     { "source": "/catalog", "destination": "/catalog.html" },
     { "source": "/about", "destination": "/about.html" },
     { "source": "/home", "destination": "/home.html" },
-    { "source": "/portofolio", "destination": "/portofolio.html" }
+    { "source": "/portofolio", "destination": "/portofolio.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "redirects": [
     { "source": "/catalog.html", "destination": "/catalog", "permanent": true },
