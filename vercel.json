@@ -1,8 +1,15 @@
 {
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/catalog", "destination": "/catalog.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/home", "destination": "/home.html" },
+    { "source": "/portofolio", "destination": "/portofolio.html" }
+  ],
   "redirects": [
     { "source": "/catalog.html", "destination": "/catalog", "permanent": true },
     { "source": "/about.html", "destination": "/about", "permanent": true },
-	{ "source": "/home.html", "destination": "/home", "permanent": true },
-	{ "source": "/portofolio.html", "destination": "/portofolio", "permanent": true }
+    { "source": "/home.html", "destination": "/home", "permanent": true },
+    { "source": "/portofolio.html", "destination": "/portofolio", "permanent": true }
   ]
 }
