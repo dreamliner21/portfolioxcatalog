@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio with Background & Video Navigation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Preload Background Images -->
+    <link rel="preload" as="image" href="https://c.top4top.io/p_3215pp0ob1.jpg">
+    <link rel="preload" as="image" href="https://i.top4top.io/p_32155i0yy1.jpg">
+    <link rel="preload" as="image" href="https://k.top4top.io/p_3215644ik1.jpg">
+
+    <style>
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            z-index: -2;
+        }
+
+        .active { opacity: 1; }
+
+        .video-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            height: 180px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            display: none;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 15;
+            transition: opacity 0.5s, visibility 0s 0.5s;
+        }
+
+        .video-container.active {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s;
+        }
+
+        .custom-video {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .video-overlay, .close-icon, .nav-icon {
+            position: absolute;
+            color: white;
+            cursor: pointer;
+        }
+
+        .video-overlay {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px;
+        }
+
+        .close-icon {
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .nav-icon {
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+        }
+
+        .nav-left { left: 10px; }
+        .nav-right { right: 10px; }
+
+        .camera-icon {
+            font-size: 30px;
+            color: white;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        body { overflow: hidden; }
+
+        @media (max-width: 640px) {
+            .video-container { width: 90%; height: auto; }
+            .custom-video { height: auto; }
+        }
+    </style>
+</head>
+<body class="h-screen text-gray-300">
+
+    <section id="content" class="flex items-center justify-center h-full relative">
+        <i class="bi bi-camera camera-icon" onclick="toggleVideo()"></i>
+        <div class="bg-gray-800 bg-opacity-80 p-12 rounded-lg text-center shadow-lg">
+            <h1 class="text-5xl font-extrabold mb-6 tracking-wider text-white">Welcome to My Portfolio</h1>
+            <p class="text-lg mb-10 opacity-80">Explore my work through dynamic videos and images.</p>
+            <a href="home.html">
+                <button class="bg-gradient-to-r from-green-400 to-blue-500 text-gray-900 font-bold py-4 px-8 rounded-full shadow-lg transition-transform duration-300">
+                    Explore Now
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <div class="video-container" id="videoContainer">
+        <i class="bi bi-chevron-left nav-icon nav-left" onclick="previousVideo()"></i>
+        <video id="myVideo" class="custom-video" autoplay>
+            <source src="" type="video/mp4" id="videoSource">
+            Your browser does not support the video tag.
+        </video>
+        <i class="bi bi-chevron-right nav-icon nav-right" onclick="nextVideo()"></i>
+        <div class="video-overlay" onclick="togglePlayPause()">
+            <i class="bi bi-play-circle"></i>
+        </div>
+        <img src="uploads/Close.gif" class="close-icon" onclick="closeVideo()" alt="Close Icon">
+    </div>
+
+    <script>
+        const images = [
+            'https://c.top4top.io/p_3215pp0ob1.jpg',
+            'https://i.top4top.io/p_32155i0yy1.jpg',
+            'https://k.top4top.io/p_3215644ik1.jpg'
+        ];
+        let currentIndex = 0;
+
+        const backgroundContainer = document.createElement('div');
+        backgroundContainer.classList.add('absolute', 'inset-0', 'overflow-hidden');
+        document.body.prepend(backgroundContainer);
+
+        function createBackground(src) {
+            const bg = document.createElement('div');
+            bg.classList.add('background');
+            bg.style.backgroundImage = `url(${src})`;
+            return bg;
+        }
+
+        let currentBg = createBackground(images[currentIndex]);
+        backgroundContainer.appendChild(currentBg);
+        currentBg.classList.add('active');
+
+        function changeBackground() {
+            const nextIndex = (currentIndex + 1) % images.length;
+            const nextBg = createBackground(images[nextIndex]);
+
+            backgroundContainer.appendChild(nextBg);
+            nextBg.classList.add('active');
+
+            setTimeout(() => {
+                currentBg.remove();
+                currentBg = nextBg;
+                currentIndex = nextIndex;
+            }, 1500);
+        }
+
+        setInterval(changeBackground, 9000);
+
+        const videos = [
+            "https://a.top4top.io/m_3215kstq91.mp4",
+            "https://c.top4top.io/m_3215d4e8q1.mp4",
+            "https://b.top4top.io/m_3215nerly1.mp4"
+        ];
+        let currentVideoIndex = 0;
+
+        function loadVideo(index) {
+            const videoSource = document.getElementById('videoSource');
+            videoSource.src = videos[index];
+            const myVideo = document.getElementById('myVideo');
+            myVideo.load();
+            myVideo.play().catch(() => {
+                alert('Autoplay gagal, silakan tekan Play secara manual.');
+            });
+        }
+
+        function toggleVideo() {
+            const videoContainer = document.getElementById('videoContainer');
+            videoContainer.style.display = videoContainer.classList.toggle('active') ? 'block' : 'none';
+            if (videoContainer.classList.contains('active')) loadVideo(currentVideoIndex);
+        }
+
+        function togglePlayPause() {
+            const myVideo = document.getElementById('myVideo');
+            const overlayIcon = document.querySelector('.video-overlay i');
+            myVideo.paused ? myVideo.play() : myVideo.pause();
+            overlayIcon.className = myVideo.paused ? 'bi bi-play-circle' : 'bi bi-pause-circle';
+        }
+
+        function closeVideo() {
+            document.getElementById('videoContainer').classList.remove('active');
+            document.getElementById('myVideo').pause();
+        }
+
+        function nextVideo() {
+            currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+            loadVideo(currentVideoIndex);
+        }
+
+        function previousVideo() {
+            currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+            loadVideo(currentVideoIndex);
+        }
+    </script>
+
+</body>
+</html>

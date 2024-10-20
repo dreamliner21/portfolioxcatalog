@@ -1,0 +1,58 @@
+.parallax {
+    background-image: url('https://i.top4top.io/p_3215tx3nh1.jpg'); /* Perbaiki jalur ke gambar */
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#projects {
+    /* background-image: url('../uploads/bgg4.jpg');
+    background-position: center;
+    background-repeat: no-repeat; */
+    padding: 2rem;
+    height: auto;
+    width: auto;
+}
+
+/* Style untuk card persegi */
+.card-square {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.5s ease;
+    opacity: 0; /* Memastikan kartu tidak terlihat pada awalnya */
+    transform: translateY(30px); /* Memindahkan kartu ke bawah pada awalnya */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Transisi */
+}
+
+.card-square:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+}
+
+.card1 {
+    background-image: url('../uploads/image1.jpg'); /* Perbaiki jalur ke gambar */
+}
+
+.card2 {
+    background-image: url('../uploads/image2.jpg'); /* Perbaiki jalur ke gambar */
+}
+
+.card3 {
+    background-image: url('../uploads/image3.jpg'); /* Perbaiki jalur ke gambar */
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog - Video Projects</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/catalog.css">
+</head>
+<body class="bg-gray-100">
+    <header class="bg-transparent text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl">Catalog</h1>
+            <nav class="flex space-x-4">
+                <a href="index.html" class="hover:text-gray-300">Landing</a>
+                <a href="home.html" class="hover:text-gray-300">Home</a>
+                <a href="portofolio.html" class="hover:text-gray-300">Portfolio</a>
+                <a href="catalog.html" class="hover:text-gray-300">Catalog</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="parallax flex items-center justify-center min-h-screen">
+        <div class="text-center bg-black bg-opacity-50 p-8 rounded-lg">
+            <h2 class="text-3xl text-white mb-4">Our Video Catalog</h2>
+            <p class="text-gray-300">
+                <a href="#catalog" id="showCatalog" class="underline hover:text-white">View all video projects!</a>
+            </p>
+        </div>
+    </main>
+
+    <section id="catalog" class="container mx-auto my-8 hidden opacity-0 transition-opacity duration-500">
+        <h3 class="text-center text-2xl mb-4 font-bold text-white">Video Projects</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="border rounded-lg overflow-hidden shadow-lg card-square card1" data-video="video1.mp4">
+                <div class="card-content">
+                    <h4 class="font-bold text-white">Project 1</h4>
+                    <p class="text-gray-300">Description of Video 1.</p>
+                </div>
+                <video class="video-overlay hidden">
+                    <source src="" type="video/mp4">
+                </video>
+            </div>
+            <div class="border rounded-lg overflow-hidden shadow-lg card-square card2" data-video="video2.mp4">
+                <div class="card-content">
+                    <h4 class="font-bold text-white">Project 2</h4>
+                    <p class="text-gray-300">Description of Video 2.</p>
+                </div>
+                <video class="video-overlay hidden" muted>
+                    <source src="" type="video/mp4">
+                </video>
+            </div>
+            <div class="border rounded-lg overflow-hidden shadow-lg card-square card3" data-video="video3.mp4">
+                <div class="card-content">
+                    <h4 class="font-bold text-white">Project 3</h4>
+                    <p class="text-gray-300">Description of Video 3.</p>
+                </div>
+                <video class="video-overlay hidden" muted>
+                    <source src="" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-transparent text-white text-center p-4">
+        <p>&copy; 2024 Video Catalog. All rights reserved.</p>
+    </footer>
+
+    <script src="js/catalog.js"></script>
+</body>
+</html>
