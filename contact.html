@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bg-cover {
+            background-image: url('https://j.top4top.io/p_32157it0m1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.5);            
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .contact-container {
+            background-color: rgba(31, 41, 55, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.5s ease-in-out;
+            max-width: 800px;
+            width: 90%; /* Menggunakan 90% agar lebih responsif */
+        }
+
+        iframe {
+            border-radius: 0.75rem;
+            width: 100%;
+            height: 300px;
+            margin-top: 1rem;
+        }
+
+        .icon-link {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .icon-link:hover {
+            transform: scale(1.2);
+        }
+
+        .close-map {
+            cursor: pointer;
+            color: white;
+            font-size: 24px;
+            position: absolute; /* Mengatur posisi absolut untuk ikonnya */
+            top: 10px; /* Jarak dari atas */
+            right: 15px; /* Jarak dari kanan */
+            z-index: 10; /* Pastikan di atas iframe */
+        }
+
+        /* Media Query untuk tampilan yang lebih responsif */
+        @media (max-width: 640px) {
+            .contact-container {
+                padding: 1rem; /* Mengurangi padding pada perangkat kecil */
+            }
+            h2 {
+                font-size: 1.5rem; /* Mengurangi ukuran font judul */
+            }
+            .text-2xl {
+                font-size: 1.5rem; /* Menyesuaikan ukuran font ikon */
+            }
+            .text-4xl {
+                font-size: 2rem; /* Menyesuaikan ukuran font ikon */
+            }
+            iframe {
+                height: 200px; /* Mengurangi tinggi iframe di perangkat kecil */
+            }
+        }
+
+        @media (max-width: 768px) {
+            iframe {
+                height: 250px; /* Menyesuaikan tinggi iframe di perangkat kecil */
+            }
+        }
+    </style>
+</head>
+<body class="bg-cover">
+
+    <div class="overlay">
+        <div class="contact-container text-white mx-4">
+            <h2 class="text-4xl font-bold text-center mb-6">Contact Us</h2>
+
+            <!-- Icon Geo-alt untuk membuka map -->
+            <div class="flex justify-center mb-6">
+                <i class="bi bi-geo-alt text-4xl text-blue-400 icon-link" onclick="toggleMap()"></i>
+            </div>
+
+            <!-- Google Maps -->
+            <div id="map-container" style="display:none; position: relative;">
+                <span class="close-map" onclick="toggleMap()">
+                    <i class="bi bi-x-octagon"></i>
+                </span>
+                <iframe 
+                    frameborder="0" 
+                    src="https://www.google.com/maps/embed/v1/place?q=PINTU+LANGIT+Super+view+golden+sunrise&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8">
+                </iframe>
+            </div>
+
+            <form action="#" method="POST" class="space-y-4 mt-6">
+                <div>
+                    <label for="name" class="block mb-2">Name</label>
+                    <input type="text" id="name" name="name" required
+                        class="w-full px-4 py-2 rounded-lg border bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-green-500">
+                </div>
+
+                <div>
+                    <label for="email" class="block mb-2">Email</label>
+                    <input type="email" id="email" name="email" required
+                        class="w-full px-4 py-2 rounded-lg border bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label for="message" class="block mb-2">Message</label>
+                    <textarea id="message" name="message" rows="5" required
+                        class="w-full px-4 py-2 rounded-lg border bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+                </div>
+
+                <button type="submit" 
+                    class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                    Send Message
+                </button>
+            </form>
+
+            <!-- Informasi Kontak -->
+            <div class="space-y-6 mt-6">
+                <div class="flex items-center">
+                    <i class="bi bi-telephone-fill text-2xl text-green-400 mr-4"></i>
+                    <span>+62 812-3456-7890</span>
+                </div>
+
+                <div class="flex items-center">
+                    <i class="bi bi-envelope-fill text-2xl text-blue-400 mr-4"></i>
+                    <span>contact@dreamliner21.xyz</span>
+                </div>
+
+                <div class="flex items-center">
+                    <i class="bi bi-geo-alt-fill text-2xl text-red-400 mr-4"></i>
+                    <span>Jakarta, Indonesia</span>
+                </div>
+
+                <div class="flex space-x-4 mt-6">
+                    <a href="#" class="text-xl hover:text-blue-500 social-icon"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-xl hover:text-blue-400 social-icon"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-xl hover:text-pink-500 social-icon"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-xl hover:text-gray-300 social-icon"><i class="bi bi-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMap() {
+            const mapContainer = document.getElementById('map-container');
+            mapContainer.style.display = mapContainer.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+
+</body>
+</html>
