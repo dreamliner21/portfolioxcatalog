@@ -52,7 +52,7 @@
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
             animation: fadeIn 1.5s ease-in-out;
             max-width: 800px;
-            width: 90%; /* Menggunakan 90% agar lebih responsif */
+            width: 90%; /* Lebih responsif */
         }
 
         iframe {
@@ -75,34 +75,28 @@
             cursor: pointer;
             color: white;
             font-size: 24px;
-            position: absolute; /* Mengatur posisi absolut untuk ikonnya */
-            top: 10px; /* Jarak dari atas */
-            right: 15px; /* Jarak dari kanan */
-            z-index: 10; /* Pastikan di atas iframe */
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            z-index: 10;
         }
 
-        /* Media Query untuk tampilan yang lebih responsif */
+        /* Responsivitas untuk layar kecil */
         @media (max-width: 640px) {
             .contact-container {
-                padding: 1rem; /* Mengurangi padding pada perangkat kecil */
+                padding: 1rem;
             }
             h2 {
-                font-size: 1.5rem; /* Mengurangi ukuran font judul */
+                font-size: 1.5rem;
             }
             .text-2xl {
-                font-size: 1.5rem; /* Menyesuaikan ukuran font ikon */
+                font-size: 1.5rem;
             }
             .text-4xl {
-                font-size: 2rem; /* Menyesuaikan ukuran font ikon */
+                font-size: 2rem;
             }
             iframe {
-                height: 200px; /* Mengurangi tinggi iframe di perangkat kecil */
-            }
-        }
-
-        @media (max-width: 768px) {
-            iframe {
-                height: 250px; /* Menyesuaikan tinggi iframe di perangkat kecil */
+                height: 200px;
             }
         }
     </style>
@@ -111,7 +105,7 @@
 
     <div class="overlay">
         <div class="contact-container text-white mx-4">
-            <h2 class="text-4xl font-bold text-center mb-6">Contact Us</h2>
+            <h2 class="text-4xl font-bold text-center mb-6">PINTU LANGIT Super View Golden Sunrise</h2>
 
             <!-- Icon Geo-alt untuk membuka map -->
             <div class="flex justify-center mb-6">
@@ -124,8 +118,11 @@
                     <i class="bi bi-x-octagon"></i>
                 </span>
                 <iframe 
-                    frameborder="0" 
-                    src="https://www.google.com/maps/embed/v1/place?q=PINTU+LANGIT+Super+view+golden+sunrise&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8">
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.3862853926234!2d111.12291597319596!3d-7.854579078064766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7981d9df121665%3A0xf465a771816860c1!2sPintu%20surga!5e0!3m2!1sid!2sid!4v1729490858480!5m2!1sid!2sid" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
 
