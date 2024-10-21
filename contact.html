@@ -51,8 +51,9 @@
             border-radius: 1rem;
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
             animation: fadeIn 1.5s ease-in-out;
-            max-width: 800px;
-            width: 90%; /* Lebih responsif */
+            width: 100%;
+            max-width: 800px; /* Membatasi lebar maksimal */
+            margin: 1rem; /* Margin untuk perangkat kecil */
         }
 
         iframe {
@@ -81,19 +82,20 @@
             z-index: 10;
         }
 
-        /* Responsivitas untuk layar kecil */
-        @media (max-width: 640px) {
+        /* Responsivitas untuk berbagai ukuran layar */
+        @media (min-width: 1024px) {
             .contact-container {
-                padding: 1rem;
+                margin: 2rem auto; /* Lebih simetris pada layar besar */
+                max-width: 70%; /* Kurangi lebar di layar sangat lebar */
             }
+            iframe {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 640px) {
             h2 {
                 font-size: 1.5rem;
-            }
-            .text-2xl {
-                font-size: 1.5rem;
-            }
-            .text-4xl {
-                font-size: 2rem;
             }
             iframe {
                 height: 200px;
@@ -104,7 +106,7 @@
 <body class="bg-cover">
 
     <div class="overlay">
-        <div class="contact-container text-white mx-4">
+        <div class="contact-container text-white">
             <h2 class="text-4xl font-bold text-center mb-6">PINTU LANGIT Super View Golden Sunrise</h2>
 
             <!-- Icon Geo-alt untuk membuka map -->
@@ -169,10 +171,10 @@
                 </div>
 
                 <div class="flex space-x-4 mt-6">
-                    <a href="#" class="text-xl hover:text-blue-500 social-icon"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="text-xl hover:text-blue-400 social-icon"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="text-xl hover:text-pink-500 social-icon"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="text-xl hover:text-gray-300 social-icon"><i class="bi bi-github"></i></a>
+                    <a href="#" class="text-xl hover:text-blue-500"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-xl hover:text-blue-400"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-xl hover:text-pink-500"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-xl hover:text-gray-300"><i class="bi bi-github"></i></a>
                 </div>
             </div>
         </div>
