@@ -13,6 +13,6 @@
     { "source": "/about.html", "destination": "/about", "permanent": true },
     { "source": "/home.html", "destination": "/home", "permanent": true },
     { "source": "/portofolio.html", "destination": "/portofolio", "permanent": true },
-    { "source": "/portofolio.html", "destination": "/portofolio", "permanent": true }
+    { "source": "/contact.html", "destination": "/contact", "permanent": true }
   ]
 }
