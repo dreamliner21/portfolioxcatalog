@@ -8,23 +8,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <style>
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         body {
             margin: 0;
             padding: 0;
             height: 100vh;
             overflow: hidden;
-            position: relative;
         }
 
         .bg-cover {
@@ -35,25 +23,23 @@
         }
 
         .overlay {
-            background-color: rgba(0, 0, 0, 0.5);            
+            background-color: rgba(0, 0, 0, 0.6);
             position: absolute;
             inset: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: fadeIn 1s ease-in-out;
+            padding: 1rem;
         }
 
         .contact-container {
-            background-color: rgba(31, 41, 55, 0.8);
-            backdrop-filter: blur(10px);
+            background-color: rgba(31, 41, 55, 0.9);
             padding: 2rem;
             border-radius: 1rem;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 1.5s ease-in-out;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
             width: 100%;
-            max-width: 800px; /* Membatasi lebar maksimal */
-            margin: 1rem; /* Margin untuk perangkat kecil */
+            max-width: 700px; /* Batas lebar kontainer */
+            margin: 0 auto;
         }
 
         iframe {
@@ -63,13 +49,25 @@
             margin-top: 1rem;
         }
 
-        .icon-link {
-            cursor: pointer;
-            transition: transform 0.3s ease;
+        /* Responsivitas */
+        @media (min-width: 1024px) {
+            .overlay {
+                padding: 2rem;
+            }
+
+            .contact-container {
+                max-width: 60%; /* Batasi lebar di layar besar */
+            }
         }
 
-        .icon-link:hover {
-            transform: scale(1.2);
+        @media (max-width: 640px) {
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            iframe {
+                height: 200px;
+            }
         }
 
         .close-map {
@@ -81,37 +79,17 @@
             right: 15px;
             z-index: 10;
         }
-
-        /* Responsivitas untuk berbagai ukuran layar */
-        @media (min-width: 1024px) {
-            .contact-container {
-                margin: 2rem auto; /* Lebih simetris pada layar besar */
-                max-width: 70%; /* Kurangi lebar di layar sangat lebar */
-            }
-            iframe {
-                height: 400px;
-            }
-        }
-
-        @media (max-width: 640px) {
-            h2 {
-                font-size: 1.5rem;
-            }
-            iframe {
-                height: 200px;
-            }
-        }
     </style>
 </head>
 <body class="bg-cover">
 
     <div class="overlay">
         <div class="contact-container text-white">
-            <h2 class="text-4xl font-bold text-center mb-6">PINTU LANGIT Super View Golden Sunrise</h2>
+            <h2 class="text-3xl font-bold text-center mb-6">PINTU LANGIT Super View Golden Sunrise</h2>
 
             <!-- Icon Geo-alt untuk membuka map -->
             <div class="flex justify-center mb-6">
-                <i class="bi bi-geo-alt text-4xl text-blue-400 icon-link" onclick="toggleMap()"></i>
+                <i class="bi bi-geo-alt text-4xl text-blue-400 cursor-pointer" onclick="toggleMap()"></i>
             </div>
 
             <!-- Google Maps -->
@@ -121,10 +99,7 @@
                 </span>
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.3862853926234!2d111.12291597319596!3d-7.854579078064766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7981d9df121665%3A0xf465a771816860c1!2sPintu%20surga!5e0!3m2!1sid!2sid!4v1729490858480!5m2!1sid!2sid" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
 
@@ -153,7 +128,6 @@
                 </button>
             </form>
 
-            <!-- Informasi Kontak -->
             <div class="space-y-6 mt-6">
                 <div class="flex items-center">
                     <i class="bi bi-telephone-fill text-2xl text-green-400 mr-4"></i>
